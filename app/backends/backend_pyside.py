@@ -182,6 +182,9 @@ class Window(window.Window):
 
         def close_event(event):
             __windows__.remove(self)
+            for i in range(len(self._timer_stack)):
+                handler, interval = self._timer_stack[i]
+                self._clock.unschedule(handler)
             self.dispatch_event("on_close")
         self._native_window.closeEvent = close_event
 

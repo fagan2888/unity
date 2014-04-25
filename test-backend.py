@@ -113,21 +113,21 @@ if __name__ == '__main__':
         print 'Mouse scroll (x=%.1f, y=%.1f, dx=%.1f, dy=%.1f)' % (x,y,dx,dy)
 
 
-    # # These two one cannot have multiple windows
-    # if backend.__name__ not in ['SDL', 'OSX GLUT']:
+    # These two one cannot have multiple windows
+    if backend.__name__ not in ['SDL', 'OSX GLUT']:
 
-    #     window = backend.Window()
-    #     @window.event
-    #     def on_draw():
-    #         gl.glClearColor(0,0,0,1)
-    #         gl.glClear(gl.GL_COLOR_BUFFER_BIT | gl.GL_DEPTH_BUFFER_BIT )
+        window = backend.Window()
+        @window.event
+        def on_draw():
+            gl.glClearColor(0,0,0,1)
+            gl.glClear(gl.GL_COLOR_BUFFER_BIT | gl.GL_DEPTH_BUFFER_BIT )
 
-    #     @window.timer(1.0)
-    #     def timer(elapsed):
-    #         print 'Timed event 2 (%.3f second(s) elapsed)' % elapsed
+        @window.timer(1.0)
+        def timer(elapsed):
+            print 'Timed event 2 (%.3f second(s) elapsed)' % elapsed
 
-    #     @window.event
-    #     def on_mouse_motion(x, y, dx, dy):
-    #         print 'Mouse motion (x=%.1f, y=%.1f, dx=%.1f, dy=%.1f)' % (x,y,dx,dy)
+        @window.event
+        def on_mouse_motion(x, y, dx, dy):
+            print 'Mouse motion (x=%.1f, y=%.1f, dx=%.1f, dy=%.1f)' % (x,y,dx,dy)
 
     run(framerate=args.framerate)
